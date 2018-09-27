@@ -21,11 +21,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeFile(imageList.get(imageIndex));
         ImageView imageView = (ImageView) MainActivity.this.findViewById(R.id.mainImage);
         imageView.setImageBitmap(bitmap);
+        setTimeStamp();
     }
 
     public void nextImage(View view) {
@@ -138,6 +141,25 @@ public class MainActivity extends AppCompatActivity {
     public void openCamera(View view) {
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         startActivity(intent);
+    }
+    public void setTimeStamp() {
+        String temp;
+        String[] tempSplit;
+        String out;
+
+        TextView timestamp = findViewById(R.id.timestamp);
+        temp = imageList.get(imageIndex);
+        tempSplit = temp.split("/");
+        if(tempSplit[tempSplit.length - 1].contains("IMG")) {
+            Log.d("image taken", "IMAGE TAKEN");
+            tempSplit = tempSplit[tempSplit.length - 1].split("_");
+            temp = tempSplit[1];
+            out = temp.substring(0, 4) + ", " + temp.substring(4,6) + ", " + temp.substring(6, 8);
+        }
+        else {
+            out = tempSplit[tempSplit.length - 1];
+        }
+        timestamp.setText(out);
     }
     public static ArrayList<String> getImagesPath(Activity activity) {
         Uri uri;

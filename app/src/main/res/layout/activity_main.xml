@@ -25,7 +25,7 @@
     <ImageView
         android:id="@+id/mainImage"
         android:layout_width="283dp"
-        android:layout_height="252dp"
+        android:layout_height="166dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -36,8 +36,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029"
+        app:layout_constraintTop_toBottomOf="@+id/timestamp"
+        app:layout_constraintVertical_bias="0.016"
         app:srcCompat="@android:drawable/gallery_thumb" />
 
     <Button
@@ -172,5 +172,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CommentInput"
         app:layout_constraintVertical_bias="0.466" />
+
+    <TextView
+        android:id="@+id/timestamp"
+        android:layout_width="320dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="32dp"
+        android:text="timestamp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
